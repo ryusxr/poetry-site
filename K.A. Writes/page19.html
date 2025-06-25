@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>K.A Writes</title>
+        <meta name="description" content="Read, Love, and Cry with K.A Writes">
+        <meta property="og:title" content="A Poem by Kaellis Amoris">
+        <meta property="og:description" content="Explore a moving piece on love and longing.">
+        <meta property="og:image" content="https://www.facebook.com/photo/?fbid=122160412124606158&set=a.122160412160606158">
+        <meta property="og:url" content="https://www.facebook.com/dae.14.5">
+        <meta property="og:type" content="article">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="/images/K.A.W..png">
+    </head>
+
+    <body>
+        <header>
+            
+            <h1 class="hhome1">K.A Writes</h1>
+            <p class="phome1">Read, Love, and Cry with K.A Writes.<br> Explore a moving piece on love and longing.</p>
+            <div class="nav">
+                <a href="index.html"><button class="btn1">Home</button></a>
+                <a href="about.html"><button class="btn1">About</button></a>
+                <button id="toggleTheme" class="btn1"> Nightmode</button>
+            </div>
+        </header>
+        <main>
+            <section class="pagination">
+                <a href="page18.html"><</a>
+                <a class="inactive1" href="page16.html">16</a>
+                <a class="inactive1" href="page17.html">17</a>
+                <a class="inactive1" href="page18.html">18</a>
+                <a class="active" href="page19.html">19</a>
+                <a class="inactive1" href="page20.html">20</a>
+                <a href="page20.html">></a>
+            </section>
+
+            <section class="s1">
+                <p id="poem">
+The anguish made by the process of oblivion, a dreadful act to forget someone you loved, a loss.
+                </p>
+            </section>
+        </main>
+    </body>
+    <script>
+            const message = "time travels, yet it still feels so special,\nthe deep serenity I have while being in denial.\nI don't understand it, since despite having a misery mark,\nto feel this peace while being at war.\n\nso this is love, the love that made a heart,\n carves a scar.";
+            const output = document.getElementById("poem");
+            let index = 0;
+
+            let htmlMessage = "";
+
+            function typeMessage() {
+                if (index < message.length) {
+                const char = message.charAt(index);
+                
+                if (char === "\n") {
+                htmlMessage += "<br>";
+                } else {
+                htmlMessage += char;
+                }
+
+                output.innerHTML = htmlMessage;
+                index++;
+
+                setTimeout(typeMessage, 60);
+                }
+            }
+
+                    typeMessage();
+        </script>
+    <script>
+    const toggleButton = document.getElementById("toggleTheme");
+
+    // Load saved theme on page load
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleButton.textContent = "Lightmode";
+    }
+
+    // Toggle theme and save preference
+    toggleButton.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        toggleButton.textContent = isDark ? "Lightmode" : "Nightmode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    </script>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>K.A Writes</title>
+        <meta name="description" content="Read, Love, and Cry with K.A Writes">
+        <meta property="og:title" content="A Poem by Kaellis Amoris">
+        <meta property="og:description" content="Explore a moving piece on love and longing.">
+        <meta property="og:image" content="https://www.facebook.com/photo/?fbid=122160412124606158&set=a.122160412160606158">
+        <meta property="og:url" content="https://www.facebook.com/dae.14.5">
+        <meta property="og:type" content="article">
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="/images/K.A.W..png">
+    </head>
+
+    <body>
+        <header>
+            
+            <h1 class="hhome1">K.A Writes</h1>
+            <p class="phome1">Read, Love, and Cry with K.A Writes.<br> Explore a moving piece on love and longing.</p>
+            <div class="nav">
+                <a href="index.html"><button class="btn1">Home</button></a>
+                <a href="about.html"><button class="btn1">About</button></a>
+                <button id="toggleTheme" class="btn1"> Nightmode</button>
+            </div>
+        </header>
+        <main>
+            <section class="pagination">
+                <a href="page5.html"><</a>
+                <a class="inactive1" href="page4.html">4</a>
+                <a class="inactive1" href="page5.html">5</a>
+                <a class="active" href="page6.html">6</a>
+                <a class="inactive1" href="page7.html">7</a>
+                <a class="inactive1" href="page8.html">8</a>
+                <a href="page7.html">></a>
+            </section>
+
+            <section class="s1">
+                <p id="poem">
+                    I took a picture of you, a fleeting image—an effervescent,\nas the dawn starts to move, the silhouette begins to leave its fringe,\na clearer, luminous you are, hearing the tintinnabulation of the bells inside my mind,\n
+                your beauty was ethereal, as if you were a paragon of those in fairytales I've dreamed.\n\nI can tell by the eyes, the conviviality you felt, the strange atmosphere, and the yellow scenery,\n
+                a golden sea, where its waves catch and reflect your light,\na sun sets, knowing—it will be my first and last image of you—a once in a lifetime sight.
+                </p>
+            </section>
+        </main>
+    </body>
+    <script>
+            const message = "I took a picture of you, a fleeting image—an effervescent,\nas the dawn starts to move, the silhouette begins to leave its fringe,\na clearer, luminous you are, hearing the tintinnabulation of the bells inside my mind,\nyour beauty was ethereal, as if you were a paragon of those in fairytales I've dreamed.\n\nI can tell by the eyes, the conviviality you felt, the strange atmosphere, and the yellow scenery,\na golden sea, where its waves catch and reflect your light,\na sun sets, knowing—it will be my first and last image of you—a once in a lifetime sight.";
+            const output = document.getElementById("poem");
+            let index = 0;
+
+            let htmlMessage = "";
+
+            function typeMessage() {
+                if (index < message.length) {
+                const char = message.charAt(index);
+                
+                if (char === "\n") {
+                htmlMessage += "<br>";
+                } else {
+                htmlMessage += char;
+                }
+
+                output.innerHTML = htmlMessage;
+                index++;
+
+                setTimeout(typeMessage, 60);
+                }
+            }
+
+                    typeMessage();
+        </script>
+    <script>
+    const toggleButton = document.getElementById("toggleTheme");
+
+    // Load saved theme on page load
+    if (localStorage.getItem("theme") === "dark") {
+        document.body.classList.add("dark-mode");
+        toggleButton.textContent = "Lightmode";
+    }
+
+    // Toggle theme and save preference
+    toggleButton.addEventListener("click", () => {
+        document.body.classList.toggle("dark-mode");
+        const isDark = document.body.classList.contains("dark-mode");
+        toggleButton.textContent = isDark ? "Lightmode" : "Nightmode";
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    </script>
+</html>
